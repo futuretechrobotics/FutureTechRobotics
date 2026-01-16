@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FutureTech Robotics League (FTRL)</title>
+    <link rel="icon" type="image/technolo.png" href="technolo.png">
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{
+  background:linear-gradient(135deg,#020617,#0f172a,#1e3a8a);
+  color:white;
+}
+
+/* NAVBAR */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:15px 40px;
+  background:rgba(2,6,23,0.85);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+  backdrop-filter:blur(10px);
+}
+nav img{width:150px}
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:25px;
+}
+nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+}
+nav a:hover{color:#38bdf8}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:100px 20px;
+}
+.hero img{
+  width:250px;
+  animation:float 4s ease-in-out infinite;
+}
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-15px)}
+  100%{transform:translateY(0)}
+}
+.hero h1{
+  font-size:3.5rem;
+  margin-top:20px;
+}
+.hero p{
+  max-width:800px;
+  margin-top:20px;
+  font-size:1.2rem;
+  color:#cbd5f5;
+}
+
+/* BUTTON */
+.btn{
+  margin-top:30px;
+  padding:14px 35px;
+  background:linear-gradient(90deg,#38bdf8,#6366f1);
+  border:none;
+  border-radius:30px;
+  color:white;
+  font-size:1rem;
+  cursor:pointer;
+  box-shadow:0 0 25px #38bdf8;
+}
+.btn:hover{transform:scale(1.05)}
+
+/* SECTIONS */
+section{
+  padding:90px 20px;
+  text-align:center;
+}
+.light{
+  background:#f8fafc;
+  color:#0f172a;
+}
+h2{
+  font-size:2.8rem;
+  margin-bottom:25px;
+}
+
+/* CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+  max-width:1200px;
+  margin:auto;
+}
+.card{
+  background:linear-gradient(135deg,#3b82f6,#06b6d4);
+  padding:30px;
+  border-radius:20px;
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-10px) scale(1.02);
+}
+
+/* LIST */
+.list{
+  max-width:900px;
+  margin:auto;
+  text-align:left;
+}
+.list li{
+  margin:12px 0;
+  font-size:1.1rem;
+}
+
+/* FORM */
+form{
+  max-width:500px;
+  margin:auto;
+}
+input,textarea{
+  width:100%;
+  padding:14px;
+  margin:10px 0;
+  border-radius:10px;
+  border:none;
+  outline:none;
+}
+
+/* ADMIN */
+#admin{
+  display:none;
+}
+    .partner-card{
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  transition:0.3s;
+}
+
+.partner-card img{
+  width:120px;
+  height:auto;
+  margin-bottom:15px;
+}
+
+.partner-card p{
+  font-weight:600;
+  color:#0f172a;
+}
+
+.partner-card:hover{
+  transform:translateY(-8px) scale(1.05);
+}
+
+
+/* FOOTER */
+footer{
+  background:#020617;
+  padding:30px;
+  text-align:center;
+  color:#cbd5f5;
+}
+    .team-card{
+  background:white;
+  color:#0f172a;
+  padding:35px;
+  border-radius:22px;
+  max-width:420px;
+  text-align:center;
+  box-shadow:0 15px 40px rgba(0,0,0,0.15);
+  transition:0.3s;
+}
+
+.team-card img{
+  width:160px;
+  height:160px;
+  object-fit:cover;
+  border-radius:50%;
+  margin-bottom:20px;
+  border:4px solid #3b82f6;
+}
+
+.team-card h3{
+  font-size:1.5rem;
+  margin-bottom:5px;
+}
+
+.team-card .role{
+  font-weight:600;
+  color:#2563eb;
+  margin-bottom:15px;
+}
+
+.team-card .bio{
+  font-size:1rem;
+  line-height:1.6;
+}
+
+.team-card:hover{
+  transform:translateY(-10px) scale(1.03);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <img src="technolo.png">
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#Partners">Partners</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#" onclick="openAdmin()">Admin</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <img src="technolo.png">
+  <h1>FutureTech Robotics League</h1>
+  <p>
+    Pakistan’s most advanced student-driven Robotics & AI ecosystem,
+    empowering innovators to lead globally.
+  </p>
+  <button class="btn" onclick="document.getElementById('register').scrollIntoView()">Join FTRL</button>
+</section>
+
+     <!-- ABOUT -->
+  <section class="about" id="about">
+    <h2>About Us</h2>
+    <p>
+      Future Tech Robotic League is a student-driven robotics & AI platform
+      promoting innovation, competitions, and future technology leadership.
+    </p>
+  </section>
+
+<!-- VISION -->
+<section class="light">
+<h2>Vision</h2>
+<p>To build Pakistan’s most advanced student-driven ecosystem for Robotics and Artificial Intelligence.</p>
+</section>
+
+<!-- MISSION -->
+<section class="dark">
+<h2>Mission</h2>
+<ul class="list">
+<li>Promote Robotics & AI education nationwide</li>
+<li>Organize competitions & championships</li>
+<li>Conduct workshops & training</li>
+<li>Build school & university collaborations</li>
+</ul>
+</section>
+
+
+<!-- FUNCTIONS -->
+<section id="functions">
+<h2>Core Functions</h2>
+<div class="grid">
+  <div class="card">
+    <h3>🤖 Robotics Competitions</h3>
+    <img src="com.jpeg" alt="Robotics Competitions">
+    <p>Innovation Challenge<br>Humanoid Robotics<br>AI Robotics</p>
+  </div>
+  <div class="card">
+    <h3>🧠 Training & Workshops</h3>
+      <img src="robo.jpeg" alt="Training & Workshops">
+    <p>IoT, M-Block Code, AI, Designing, Robotics </p>
+  </div>
+  <div class="card">
+    <h3>🏫 Collaborations</h3>
+      <img src="Collab.jpeg" alt="Collaborations">
+    <p>Schools, Universities, Labs, Teachers</p>
+  </div>
+  <div class="card">
+    <h3>⚙ Innovation Cell</h3>
+      <img src="innov.jpeg" alt="Innovation Cell">
+    <p>Advanced Robots & AI Automation</p>
+  </div>
+</div>
+</section>
+    <!-- ONLINE COURSES -->
+<section class="light" id="courses">
+  <h2>Online Certified Courses</h2>
+  <p style="max-width:900px;margin:auto;font-size:1.1rem">
+    All courses are <b>paid</b>, duration of <b>3 months</b>, and cost only
+    <b>PKR 3000 per course</b>.  
+    Certificate will be issued after successful completion.
+  </p>
+
+  <div class="grid" style="margin-top:40px">
+
+    <div class="card">
+      <h3>🔧 Arduino Full Course</h3>
+      <p>
+        Arduino basics to advanced projects, sensors, motors,
+        automation & real-world robotics.
+      </p>
+      <p><b>Duration:</b> 3 Months</p>
+      <p><b>Fee:</b> PKR 3000</p>
+      <button class="btn">Enroll Now</button>
+    </div>
+
+    <div class="card">
+      <h3>⚡ Basic Electronics</h3>
+      <p>
+        Components, circuits, breadboards, power systems,
+        troubleshooting & safety.
+      </p>
+      <p><b>Duration:</b> 3 Months</p>
+      <p><b>Fee:</b> PKR 3000</p>
+      <button class="btn">Enroll Now</button>
+    </div>
+
+    <div class="card">
+      <h3>🧩 Block Coding</h3>
+      <p>
+        Visual programming for beginners,
+        logic building, Scratch-style coding & robotics logic.
+      </p>
+      <p><b>Duration:</b> 3 Months</p>
+      <p><b>Fee:</b> PKR 3000</p>
+      <button class="btn">Enroll Now</button>
+    </div>
+
+    <div class="card">
+      <h3>💻 C++ & Arduino IDE Coding</h3>
+      <p>
+        C++ programming, Arduino IDE,
+        coding robotics systems & real-time projects.
+      </p>
+      <p><b>Duration:</b> 3 Months</p>
+      <p><b>Fee:</b> PKR 3000</p>
+      <button class="btn">Enroll Now</button>
+    </div>
+
+  </div>
+</section>
+<!-- CERTIFICATE ACCESS -->
+<section id="certificate">
+  <h2>Certificate Access</h2>
+  <p style="max-width:800px;margin:auto;font-size:1.1rem">
+    Certificates are issued <b>only after successful course completion</b>.
+    Students must be verified by the FTRL Admin Panel.
+  </p>
+
+  <form style="margin-top:30px" onsubmit="checkCertificate(event)">
+    <input type="text" placeholder="Enter Registered Name" required>
+    <input type="email" placeholder="Enter Registered Email" required>
+    <button class="btn" type="submit">Check Certificate</button>
+  </form>
+    <div id="certificateBox" style="position:relative; display:none; margin-top:40px;">
+    <img src="certificate.png" style="width:100%; max-width:1000px;">
+    
+    <!-- NAME PRINTED ON CERTIFICATE -->
+    <div id="nameOnCert"
+         style="
+         position:absolute;
+         top:48%;
+         left:50%;
+         transform:translate(-50%, -50%);
+         font-size:36px;
+         font-weight:600;
+         color:#0f2f1f;
+         ">
+    </div>
+
+  <p id="certMsg" style="margin-top:20px;color:#38bdf8"></p>
+</div>
+</section>
+
+
+    <!-- EVENTS -->
+  <section class="events" id="events">
+    <h2>Upcoming Events</h2>
+
+    <div class="event-card">
+      <h3>🚀 Robotics Competitions</h3>
+      <p>Arduino, sensors, motors & hands-on learning.</p>
+    </div>
+
+    <div class="event-card">
+      <h3>🏟 Future Tech League 2026</h3>
+      <p>Grand robotics competition & exhibition.</p>
+    </div>
+  </section>
+
+<!-- REGISTER -->
+<section class="light" id="register">
+<h2>Registration Form</h2>
+<form onsubmit="registerUser(event)">
+  <input type="text" id="name" placeholder="Full Name" required>
+  <input type="email" id="email" placeholder="Email" required>
+  <input type="text" id="phone" placeholder="Phone Number" required>
+  <textarea placeholder="Why do you want to join FTRL?" required></textarea>
+  <button class="btn" type="submit">Submit</button>
+</form>
+</section>
+    <!-- PARTNERS -->
+<section class="light" id="partners">
+  <h2>Our Partners</h2>
+  <p style="max-width:800px;margin:auto;font-size:1.1rem">
+    FutureTech Robotics League proudly collaborates with educational institutions
+    and technology organizations to promote Robotics & AI.
+  </p>
+
+  <div style="
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:40px;
+    max-width:1000px;
+    margin:50px auto;
+    align-items:center;
+  ">
+
+    <div class="partner-card">
+      <img src="njv school.png" alt="NJV School">
+      <p>NJV School</p>
+    </div>
+
+    <div class="partner-card">
+      <img src="njvscience.png" alt="NJV Science Society">
+      <p>NJV Science Society</p>
+    </div>
+
+    <div class="partner-card">
+      <img src="techtics.png" alt="Techtics Club">
+      <p>Techtics Club</p>
+    </div>
+
+    <div class="partner-card">
+      <img src="indus.png" alt="Indus Robotix">
+      <p>Indus Robotix</p>
+    </div>
+
+  </div>
+</section>
+    <!-- TEAM SECTION -->
+<section class="light" id="team">
+  <h2>Meet the Members of FTRL</h2>
+  <p style="max-width:800px;margin:auto;font-size:1.1rem">
+    The leadership behind FutureTech Robotics League is driven by vision,
+    innovation, and a passion for empowering young minds.
+  </p>
+
+  <div style="
+    max-width:900px;
+    margin:50px auto;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:40px;
+  ">
+
+    <!-- FOUNDER CARD -->
+    <div class="team-card">
+      <img src="habii.png" alt="Habibullah Saleh">
+      <h3>Habibullah Saleh</h3>
+      <p class="role">Founder & President</p>
+      <p class="bio">
+        A science enthusiast turned visionary leader, Habibullah Saleh founded the FutureTech Robotics League (FTRL) to provide a platform where young minds can transform ideas into real-world innovations, compete in thedigital world, and build a brighter future through Robotics and AI.
+      </p>
+    </div>
+<div class="team-card">
+      <img src="founder.png" alt="Dua Zahid">
+      <h3>Dua Zahid</h3>
+      <p class="role">Co-Founder & Vice President</p>
+      <p class="bio">
+        Medical Student of Class 9th,passionate about Robotics and Co-Founder of FTRL.She is currently Head of Event at NJV Science Society and compete in many Robotics Programs.
+      </p>
+    </div>
+<div class="team-card">
+      <img src="furqey.png" alt="Furqan Khatti">
+      <h3>Furqan Khatti</h3>
+      <p class="role">General Secretary</p>
+      <p class="bio">
+        A science enthusiast and visionary working to build a strong student_driven technology ecosystem 
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact Us</h2>
+<p>📞 +92 318 3744984</p>
+<p>📧 futuretechrobotics001@gmail.com</p>
+</section>
+
+<!-- ADMIN PANEL -->
+<section class="light" id="admin">
+<h2>Admin Panel</h2>
+<p><b>Certificates Generator</b></p>
+<input type="text" placeholder="Student Name">
+<input type="text" placeholder="Event Name">
+<button class="btn">Generate Certificate</button>
+</section>
+    <script>
+function registerUser(e){
+  e.preventDefault();
+  alert("Registration Successful! Data saved.");
+}
+function openAdmin(){
+  document.getElementById("admin").style.display="block";
+  document.getElementById("admin").scrollIntoView();
+}
+</script>
+    <script>
+function checkCertificate(e){
+  e.preventDefault();
+  document.getElementById("certMsg").innerText =
+    "Certificate not found or course not completed yet. Please contact admin.";
+}
+</script>
+
+<!-- FOOTER -->
+<footer>
+<p>© 2026 All rights reserved by FTRL.</p>
+</footer>
+
+</body>
+</html>
