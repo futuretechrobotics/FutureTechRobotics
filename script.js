@@ -24,4 +24,8 @@ function submitCourse(e){
 
   document.getElementById("courseForm").reset();
 }
+function approveStudent(){
+  alert("Student approved! Certificate access enabled.");
+}
+
 
