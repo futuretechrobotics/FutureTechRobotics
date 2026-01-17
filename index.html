@@ -94,6 +94,43 @@ promoting innovation, competitions, and future technology leadership.
   </div>
 </div>
 </section>
+  <section class="light" id="course-enroll">
+  <h2>Course Enrollment Form</h2>
+
+  <p style="max-width:800px;margin:auto">
+    Pay <b>PKR 3000</b> via JazzCash on  
+    <b>0325-2511665</b>  
+    and upload payment receipt for verification.
+  </p>
+
+  <form id="courseForm" onsubmit="submitCourse(event)" enctype="multipart/form-data">
+
+    <input type="text" placeholder="Student Full Name" required>
+    <input type="text" placeholder="Father Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <input type="text" placeholder="Phone Number" required>
+
+    <select required>
+      <option value="">Select Course</option>
+      <option>Arduino Full Course</option>
+      <option>Basic Electronics</option>
+      <option>Block Coding</option>
+      <option>C++ & Arduino IDE</option>
+    </select>
+
+    <label style="margin-top:10px;display:block;font-weight:600">
+      Upload JazzCash Payment Receipt
+    </label>
+    <input type="file" accept="image/*,application/pdf" required>
+
+    <p style="font-size:0.9rem;color:#334155;margin-top:10px">
+      📌 Payment must be sent to <b>JazzCash 0325-2511665</b>
+    </p>
+
+    <button class="btn" type="submit">Submit Enrollment</button>
+  </form>
+</section>
+
 
 <!-- CERTIFICATE -->
 <section id="certificate">
