@@ -62,6 +62,14 @@ section{padding:90px 20px;text-align:center}
 background:#f8fafc;
 color:#0f172a;
 }
+select, input[type="file"]{
+  width:100%;
+  padding:14px;
+  margin:10px 0;
+  border-radius:10px;
+  border:none;
+  outline:none;
+}
 
 .grid{
 display:grid;
