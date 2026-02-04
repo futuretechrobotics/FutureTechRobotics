@@ -134,3 +134,40 @@ text-align:center;
   width:100%;
   border-radius:8px;
 }
+.receipt-box{
+  background:#f8fafc;
+  border-radius:12px;
+  overflow:hidden;
+  margin-top:10px;
+  border:1px solid #cbd5f5;
+}
+
+.receipt-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 15px;
+  background:#1e3a8a;
+  color:white;
+  font-weight:600;
+}
+
+.receipt-header button{
+  background:none;
+  border:none;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+}
+
+.receipt-body{
+  max-height:300px;
+  overflow-y:auto;
+  padding:10px;
+  transition:0.3s;
+}
+
+.receipt-img{
+  width:100%;
+  border-radius:8px;
+}
