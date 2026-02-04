@@ -27,16 +27,6 @@ function submitCourse(e){
 function approveStudent(){
   alert("Student approved! Certificate access enabled.");
 }
-function toggleReceipt(btn){
-  const body = btn.parentElement.nextElementSibling;
 
-  if(body.style.display === "none"){
-    body.style.display = "block";
-    btn.innerHTML = "➖";
-  } else {
-    body.style.display = "none";
-    btn.innerHTML = "➕";
-  }
-}
 
 
