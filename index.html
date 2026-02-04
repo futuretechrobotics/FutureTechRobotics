@@ -564,6 +564,17 @@ function submitEnroll(e){
 
   document.getElementById("enrollForm").reset();
   closeEnroll();
+    <div class="receipt-box">
+  <div class="receipt-header">
+    <span>Payment Receipt</span>
+    <button onclick="toggleReceipt(this)">➖</button>
+  </div>
+
+  <div class="receipt-body">
+    <img src="RECEIPT_URL" class="receipt-img">
+  </div>
+</div>
+
 }
 
 </script>
